@@ -86,6 +86,12 @@ Improve recall quality.
 **What it answers:**  
 Can memory recall feel more human and less keyword-based?
 
+## Dependencies (2D)
+Project 2D uses Sentence Transformers:
+
+pip install sentence-transformers
+
+
 ---
 
 ## Design Principles
