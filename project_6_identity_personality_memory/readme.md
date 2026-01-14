@@ -96,4 +96,105 @@ Possible outcomes:
 All conflicts are stored for inspection.
 
 ---
+## What This Project Implements
+
+### Identity Abstractions
+- `IdentityItem`
+- `IdentityProfile`
+- `IdentityMemory` (project boundary object)
+
+### Update Logic
+- Explicit vs implicit updates
+- Confirmation boosts
+- Auto-protection after repeated confirmations
+- Flip-flop penalties
+
+### Integration Surface
+- Generates compact **identity directives**
+- Designed to plug into an existing Unified Memory Stack
+- Zero framework dependencies
+- Fully serializable (JSON export/import)
+
+---
+
+## Example Identity Directives
+
+These are consumed downstream by planners or response generators:
+
+AGENT_TRAIT::tone=analytical
+AGENT_TRAIT::verbosity=concise
+USER_PREFERENCE::answer_length=short
+USER_FACT::location=Athens
+
+
+This allows identity to shape behavior **without leaking raw memory objects**.
+
+---
+
+## Integration with Unified Memory Stack
+
+This project does **not** replace existing memory systems.
+
+It plugs in alongside:
+- Short-term memory
+- Summary memory
+- Long-term vector memory
+- Planning memory
+- Skill & task memory
+
+Typical usage:
+1. Unified stack builds context
+2. Identity directives are injected
+3. Planner and response layers adapt behavior accordingly
+
+---
+
+## Design Constraints
+
+This project intentionally follows:
+
+- Code-first design
+- Colab-friendly execution
+- No external frameworks
+- Transparent logic
+- Clear project boundaries
+- Deterministic behavior
+
+Everything runs as a single Python file.
+
+---
+
+## What This Project Does *Not* Do
+
+- It does not extract preferences automatically from language
+- It does not generate responses
+- It does not perform planning
+- It does not store episodic or world state memory
+
+Those belong to other projects in the roadmap.
+
+---
+
+## Roadmap Position
+
+This is **Project 6** in the memory-agent roadmap.
+
+Previous projects handled:
+- Short-term memory
+- Summary memory
+- Long-term memory
+- Unified memory stack
+- Memory-influenced planning
+- Skill & task memory
+
+The next step is **Project 7 – Embodied / World Memory**, which moves memory from conversations into environments, states, and outcomes.
+
+---
+
+## Status
+
+✅ Implemented  
+✅ Runnable  
+✅ Serializable  
+✅ Ready for integration  
 
