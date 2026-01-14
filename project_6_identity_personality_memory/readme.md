@@ -25,3 +25,23 @@ But still:
 - A protected identity core
 - Explicit separation between user data and agent traits
 - Conflict-aware updates instead of blind overwrites
+
+---
+
+## Core Concepts
+
+### 1. Separation of Concerns
+
+This project enforces a strict boundary between:
+
+| Category | Description |
+|------|-----------|
+| User Facts | Stable information about the user (location, role, etc.) |
+| User Preferences | How the user prefers the agent to behave |
+| Agent Traits | The agent’s own personality and response style |
+
+This prevents:
+- User preferences leaking into agent identity
+- Agent traits being overwritten by temporary user behavior
+
+---
