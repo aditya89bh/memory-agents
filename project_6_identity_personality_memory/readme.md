@@ -45,3 +45,35 @@ This prevents:
 - Agent traits being overwritten by temporary user behavior
 
 ---
+
+### 2. Identity Items
+
+Each identity memory is stored as an `IdentityItem` with:
+
+- `key`, `value`
+- `category` (user_fact, user_pref, agent_trait)
+- `confidence` (how reliable it is)
+- `salience` (how important it is)
+- `protection` (how hard it is to overwrite)
+- `confirmation_count`
+- `change history`
+
+This makes identity updates **auditable and explainable**.
+
+---
+
+### 3. Protected Identity Core
+
+Some traits are intentionally harder to overwrite.
+
+Examples:
+- Agent emotionality
+- Default analytical tone
+- Long-standing user preferences
+
+Protected items:
+- Require stronger evidence to change
+- Resist weak or implicit signals
+- Can still be overridden by explicit user intent
+
+---
