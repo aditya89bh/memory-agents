@@ -121,6 +121,7 @@ All conflicts are stored for inspection.
 
 These are consumed downstream by planners or response generators:
 
+```text
 AGENT_TRAIT::tone=analytical
 AGENT_TRAIT::verbosity=concise
 USER_PREFERENCE::answer_length=short
