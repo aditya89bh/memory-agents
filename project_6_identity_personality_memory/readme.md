@@ -77,3 +77,23 @@ Protected items:
 - Can still be overridden by explicit user intent
 
 ---
+### 4. Conflict-Aware Updates
+
+When a new identity signal arrives:
+
+- The system **scores** old vs new information
+- Factors considered:
+  - Confidence
+  - Salience
+  - Protection level
+  - Source (explicit > implicit > inferred)
+
+Possible outcomes:
+- Confirm existing value
+- Accept new value
+- Reject update and log conflict
+
+All conflicts are stored for inspection.
+
+---
+
