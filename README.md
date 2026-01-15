@@ -53,7 +53,7 @@ Memory is not “what you store”.
 Memory is **what you choose to forget**.
 
 📁 Folder:
-project-1-short-term-memory/
+
 
 ---
 
