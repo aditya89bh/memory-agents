@@ -50,3 +50,49 @@ Memory is **what you choose to forget**.
 📁 `project-1-short-term-memory/`
 
 ---
+## 📘 Project 1B – Summary Memory (Compression)
+
+**Goal:**  
+Prevent context explosion while preserving meaning.
+
+**What’s built:**
+- Two-tier memory (recent buffer + running summary)  
+- No recursive memory bloat  
+
+**Key insight:**  
+Chronology does not scale.  
+**Compression is intelligence.**
+
+📁 `project-1b-summary-memory/`
+
+---
+
+## 📘 Project 2 – Long-Term Memory (Retrieval)
+
+**Goal:**  
+Move from recent context to **searchable experience**.
+
+Project 2 is broken into focused sub-projects.
+
+**2A – Vector Recall**
+- TF-IDF embeddings  
+- Cosine similarity  
+- Top-k semantic recall  
+
+**Question answered:**  
+Can the agent recall relevant past information at all?
+
+**2B – Metadata-Aware Memory**
+- Memory types (identity, preference, goal, fact)  
+- Tags, sources, filters  
+
+**Question answered:**  
+Which memories should be considered right now?
+
+**2C – Salience & Memory Gating**
+- Importance scoring  
+- Store vs discard decisions  
+- Pinned memories  
+
+**Question answered:**  
+What is worth remembering long-term?
