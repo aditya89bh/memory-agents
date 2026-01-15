@@ -163,3 +163,57 @@ Turn repetition into reusable competence.
 📁 `project-5-skill-memory/`
 
 ---
+
+## 📘 Project 6 – Identity & Personality Memory
+
+**Goal:**  
+Make the agent consistent across weeks and months.
+
+**What will be built:**
+- Stable identity memory  
+- Long-term preferences  
+- Trait resolution logic  
+
+**Example:**  
+“This user prefers concise answers and Python-first solutions.”
+
+📁 `project-6-identity-memory/`
+
+---
+
+## 📘 Project 7 – Embodied / World Memory
+
+**Goal:**  
+Tie memory to environments, not just text.
+
+**Possible directions:**
+- Robotics world memory  
+- Simulated environments  
+- State- or spatial-aware memory  
+
+**Example:**  
+“In this environment, path B was safer last time.”
+
+📁 `project-7-embodied-memory/`
+
+---
+
+## Design Principles
+
+- Memory is explicit, never implicit  
+- Retrieval happens before reasoning  
+- Forgetting is a feature  
+- Salience beats volume  
+- Minimal frameworks, maximum clarity  
+- Colab-first, GitHub-second  
+
+---
+
+## Status
+
+- Projects 1–5: ✅ Completed  
+- Projects 6–7: 🧭 Planned  
+
+---
+
+If someone reads just this README, they should understand **how memory evolves into intelligence**.
