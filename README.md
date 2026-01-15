@@ -96,3 +96,36 @@ Which memories should be considered right now?
 
 **Question answered:**  
 What is worth remembering long-term?
+
+**2D – Neural Embeddings**
+- Sentence Transformers  
+- Paraphrase-robust recall  
+
+**Question answered:**  
+Can recall feel semantic instead of keyword-based?
+
+📁 `project-2-long-term-memory/`
+
+---
+
+## 📘 Project 3 – Unified Memory Stack (Integration)
+
+**Goal:**  
+Make memory feel like **one brain**, not multiple modules.
+
+**What’s built:**
+- Unified `MemoryManager`  
+- Clear read/write phases  
+- Single context assembly pipeline  
+
+**Architecture flow:**
+
+Input → Memory Gate → Short-Term Buffer → Summary Memory →  
+Long-Term Retrieval → Context Assembly → Agent Reasoning
+
+**Why this matters:**  
+This is the minimum viable real agent architecture.
+
+📁 `project-3-unified-memory-stack/`
+
+---
