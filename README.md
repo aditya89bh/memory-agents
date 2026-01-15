@@ -129,3 +129,37 @@ This is the minimum viable real agent architecture.
 📁 `project-3-unified-memory-stack/`
 
 ---
+
+## 📘 Project 4 – Memory + Planning (Cognition)
+
+**Goal:**  
+Make memory influence **decisions**, not just answers.
+
+**What’s built:**
+- Action history memory  
+- Outcome memory (success / failure)  
+- Planner that consults past experience  
+
+**Example:**  
+“Last time this failed, try a different strategy.”
+
+📁 `project-4-memory-planning/`
+
+---
+
+## 📘 Project 5 – Skill & Task Memory (Learning)
+
+**Goal:**  
+Turn repetition into reusable competence.
+
+**What’s built:**
+- Task attempt memory  
+- Skill abstraction  
+- Task-to-skill mapping  
+
+**Example:**  
+“This looks like a task I’ve done before.”
+
+📁 `project-5-skill-memory/`
+
+---
