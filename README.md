@@ -30,3 +30,23 @@ Project 4 → planning
 Project 5 → learning  
 Project 6 → identity  
 Project 7 → embodiment
+
+---
+
+## 📘 Project 1 – Short-Term Memory (Continuity)
+
+**Goal:**  
+Give the agent continuity across turns.
+
+**What’s built:**
+- Rolling window memory  
+- Explicit forgetting  
+- Deterministic context size  
+
+**Key insight:**  
+Memory is not what you store.  
+Memory is **what you choose to forget**.
+
+📁 `project-1-short-term-memory/`
+
+---
