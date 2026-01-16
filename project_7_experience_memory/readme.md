@@ -40,3 +40,68 @@ Example state:
   "signals": { "domain": "technical", "length": "long" },
   "tags": ["nlp"]
 }
+Action captures what the agent chose to do.
+
+Example action:
+{
+  "strategy": "hierarchical_summary",
+  "skill": "summarizer_v2",
+  "parameters": { "verbosity": "low" }
+}
+
+Outcome captures what happened as a result.
+
+Example outcome:
+{
+  "success": true,
+  "score": 0.82,
+  "latency_ms": 1200
+}
+
+The field success is required in the outcome.
+
+Retrieval follows simple and transparent rules. The task must match exactly. Optional filters such as environment or phase may be applied. Similarity is computed using weighted overlap across environment, phase, constraints, signals, and tags. No embeddings are used in the MVP.
+
+Each experience record is ranked using:
+rank_score = 0.55 * similarity + 0.25 * outcome_quality + 0.20 * recency
+
+Experiences are then aggregated by action signature:
+strategy | skill | parameters
+
+For each action, the system computes the number of trials, success rate, average quality, common failure patterns, and recency of last success. Actions are ranked using:
+action_score = 0.60 * success_rate + 0.25 * avg_quality + 0.15 * recency_of_last_success
+
+The output is advisory, not prescriptive.
+
+The public interface exposed to planners includes:
+add_experience(state, action, outcome, salience=0.5, episode_id=None)
+query(state, k=10, min_similarity=0.0, filters=None)
+recommend(state, k_actions=5, k_records=25)
+export_json()
+import_json(json_str)
+
+The planner consumes recommendations and remains responsible for final decisions.
+
+Typical integration flow:
+The planner constructs the current state.
+Experience Memory is queried.
+Ranked recommendations are returned.
+The planner selects the final action.
+
+Experience Memory advises. The planner decides.
+
+This project is part of a larger memory-agent roadmap:
+1. Short-Term Memory
+2. Summary Memory
+3. Long-Term Memory
+4. Unified Memory Stack
+5. Memory-Influenced Planning
+6. Identity and Personality Memory
+7. Experience Memory (this project)
+
+Status:
+Implemented.
+Runnable demo included.
+PRD-driven design.
+JSON persistence supported.
+Ready for integration.
