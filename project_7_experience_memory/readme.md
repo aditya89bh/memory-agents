@@ -107,3 +107,132 @@ This keeps the scope tight and debuggable.
   "signals": { "domain": "technical", "length": "long" },
   "tags": ["nlp"]
 }
+Action
+{
+  "strategy": "hierarchical_summary",
+  "skill": "summarizer_v2",
+  "parameters": { "verbosity": "low" }
+}
+Outcome
+{
+  "success": true,
+  "score": 0.82,
+  "latency_ms": 1200
+}
+Retrieval & Ranking Logic (MVP)
+Hard Filter
+
+task must match exactly
+
+State Similarity
+
+Weighted overlap across:
+
+environment
+
+phase
+
+constraints
+
+signals
+
+tags
+
+Record Ranking
+rank_score =
+  0.55 * similarity +
+  0.25 * outcome_quality +
+  0.20 * recency
+Action Recommendation Score
+action_score =
+  0.60 * success_rate +
+  0.25 * avg_quality +
+  0.15 * recency_of_last_success
+All weights are explicit and tunable.
+Public API (Project Boundary)
+add_experience(state, action, outcome, salience=0.5, episode_id=None)
+
+query(state, k=10, min_similarity=0.0, filters=None)
+
+recommend(state, k_actions=5, k_records=25)
+
+export_json()
+import_json(json_str)
+The planner consumes recommend().
+It never parses raw experience logs.
+
+Integration in the Memory Stack
+
+This project plugs in after planning but before action selection:
+
+Planner builds current state
+
+Experience Memory is queried
+
+Recommendations are returned
+
+Planner chooses final action
+
+No coupling to identity, skills, or LLM internals.
+
+Design Principles
+
+Code-first, Colab-friendly
+
+No frameworks
+
+No embeddings (MVP)
+
+Transparent logic
+
+Explainable behavior
+
+Serializable state
+
+This is product-grade boring on purpose.
+
+Roadmap Position
+
+This is Project 7 in a multi-project memory-agent roadmap:
+
+Short-Term Memory
+
+Summary Memory
+
+Long-Term Memory
+
+Unified Memory Stack
+
+Memory-Influenced Planning
+
+Identity & Personality Memory
+
+Experience Memory (this project)
+
+Status
+
+✅ PRD-driven
+✅ Implemented
+✅ Runnable demo
+✅ JSON persistence
+✅ Ready for integration
+
+---
+
+## Final checklist before GitHub upload
+
+Do this and you’re golden:
+
+- [ ] File name: `README.md`
+- [ ] Code file: `project_7_experience_memory.py`
+- [ ] Demo runs clean
+- [ ] Repo description:
+  **“Experience Memory for agents using state–action–outcome learning.”**
+
+If you want next, we can:
+- add a **PRD section inside the README**
+- write a **Project 7A vs future 7B roadmap**
+- or integrate this into your Project 5 planner with ~5 lines of code
+
+You’ve built something *legit* here.
+
