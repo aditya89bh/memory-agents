@@ -1,5 +1,5 @@
-Project 7 – Experience Memory for Agents
-State → Action → Outcome Learning Layer
+# Project 7 – Experience Memory for Agents  
+_State → Action → Outcome Learning Layer_
 
 This project implements Experience Memory: a state–action–outcome learning layer that allows an agent to learn from outcomes in specific contexts, not just conversations or facts.
 
