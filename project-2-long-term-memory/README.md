@@ -1,124 +1,140 @@
-# Project 2 – Long-Term Memory (Vector-Based Recall)
+# Project 2 — Long-Term Memory
 
-This project explores **long-term memory for agents**, where past information is
-stored persistently and retrieved based on relevance rather than recency.
+Project 2 moves the agent from recent context to searchable experience.
 
-Unlike short-term or summary memory, this memory is:
-- searchable
-- durable
-- independent of the recent conversation window
-
-This is the foundation of Retrieval-Augmented Generation (RAG) and memory-driven agents.
+Unlike short-term or summary memory, long-term memory is durable, searchable, and independent of the current conversation window.
 
 ---
 
-## Core Idea
+## Goal
 
-Instead of remembering:
-> “what happened last”
-
-the agent learns to remember:
-> “what matters right now”
-
-This is achieved by:
-- converting memories into vectors
-- retrieving the most relevant ones at query time
-- injecting them into the agent’s context
+Give the agent the ability to retrieve relevant past information.
 
 ---
 
-## Structure of Project 2
+## What this project proves
 
-Project 2 is intentionally **iterative**. Each step builds on the previous one.
-
-### 2A – Basic Vector Recall (current)
-**Goal:**  
-Prove that semantic recall works at all.
-
-**Features:**
-- Text-based memories
-- TF-IDF vectorization
-- Cosine similarity search
-- Top-k memory retrieval
-
-**What it answers:**  
-Can the agent recall relevant past facts when asked?
+An agent can recall memories based on relevance instead of recency.
 
 ---
 
-### 2B – Metadata-Aware Memory (next)
-**Goal:**  
-Make recall controllable and context-aware.
+## Core idea
 
-**Adds:**
-- Metadata (type, source, timestamp, tags)
-- Filtered retrieval (e.g. identity vs preferences)
-- Better memory organization
+Instead of remembering only what happened last, the agent learns to retrieve what matters right now.
 
-**What it answers:**  
-Which memories should be considered *in this situation*?
-
----
-
-### 2C – Salience & Memory Gating (planned)
-**Goal:**  
-Prevent memory bloat and junk storage.
-
-**Adds:**
-- Importance scoring
-- Store-or-discard decisions
-- Optional decay or reinforcement
-
-**What it answers:**  
-What is worth remembering long-term?
+```text
+Memory Store
+  -> Vectorization / Embedding
+  -> Similarity Search
+  -> Top-K Retrieval
+  -> Context Assembly
+  -> Agent Response
+```
 
 ---
 
-### 2D – Improved Embeddings (planned)
-**Goal:**  
-Improve recall quality.
+## Structure
 
-**Changes:**
-- TF-IDF → neural embeddings (Sentence Transformers)
-- Higher semantic understanding
-- Better recall across paraphrases
+Project 2 is intentionally iterative.
 
-**What it answers:**  
-Can memory recall feel more human and less keyword-based?
+| Part | Focus | What it proves |
+|---|---|---|
+| 2A | Basic vector recall | Relevant memories can be retrieved using TF-IDF and cosine similarity |
+| 2B | Metadata-aware memory | Retrieval improves when memories include type, source, timestamp, and tags |
+| 2C | Salience and memory gating | Not every interaction deserves long-term storage |
+| 2D | Neural embeddings | Recall becomes more semantic and less keyword-bound |
 
-## Dependencies (2D)
-Project 2D uses Sentence Transformers:
+---
 
+## What it shows
+
+- persistent memory records
+- TF-IDF vector recall
+- cosine similarity search
+- top-k retrieval
+- metadata-aware filtering
+- salience-based storage decisions
+- neural embedding upgrade path
+
+---
+
+## Example trace
+
+```text
+Stored memories:
+1. User prefers concise explanations.
+2. User is building a memory-agents repo.
+3. User wants to study AGI through projects.
+4. User likes Python-first examples.
+
+Query:
+How should I explain this repo to the user?
+
+Retrieved memories:
+1. User is building a memory-agents repo.
+2. User prefers concise explanations.
+3. User wants to study AGI through projects.
+
+Agent behavior:
+Gives a concise explanation connected to the user's project-based AGI learning path.
+```
+
+---
+
+## Why this matters
+
+Short-term memory preserves continuity.
+
+Long-term memory creates reusable experience.
+
+This is the foundation of retrieval-augmented agents and memory-driven systems.
+
+---
+
+## Minimum implementation
+
+A minimal version should include:
+
+- a memory record structure
+- a memory store
+- a vectorization method
+- similarity scoring
+- top-k retrieval
+- context injection
+- optional metadata filters
+
+---
+
+## Dependencies
+
+Project 2A can be implemented with lightweight TF-IDF tools.
+
+Project 2D can use Sentence Transformers:
+
+```bash
 pip install sentence-transformers
-
-
----
-
-## Design Principles
-
-- Memory is **explicit**, not implicit
-- Forgetting is a feature, not a bug
-- Retrieval happens **before reasoning**
-- Memory storage and memory usage are separate concerns
-
-This project avoids agent frameworks to keep the mechanics transparent.
+```
 
 ---
 
-## Relation to Earlier Projects
+## Design principles
 
-- **Project 1:** Short-term memory (rolling window)
-- **Project 1B:** Summary memory (compression over time)
-- **Project 2:** Long-term memory (semantic retrieval)
-
-Together, these form a complete memory stack.
+- memory is explicit, not implicit
+- retrieval happens before reasoning
+- memory storage and memory usage are separate concerns
+- salience matters more than volume
+- forgetting is a feature
 
 ---
 
-## Notes
+## Key insight
 
-- The current implementation is Colab-friendly and lightweight.
-- Production systems would replace TF-IDF with neural embeddings
-  and use persistent vector databases.
+The agent should remember what matters right now, not only what happened last.
 
-This project focuses on understanding the architecture first.
+---
+
+## Status
+
+Complete.
+
+This project prepares the repo for Project 3, where memory layers are unified into one stack.
