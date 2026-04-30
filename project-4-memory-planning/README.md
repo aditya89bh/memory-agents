@@ -1,190 +1,137 @@
-# Project 4 – Memory + Planning
+# Project 4 — Memory + Planning
 
-Project 4 extends the memory-agent architecture by introducing **planning, outcomes, and experience-based decision making**.
+Project 4 extends the memory-agent architecture by introducing planning, outcomes, and experience-based decision making.
 
-Up to Project 3, memory provided continuity and context.  
-From Project 4 onward, memory influences **what the agent decides to do**.
-
----
-
-## Core Idea
-
-The agent should remember **what worked**, **what failed**, and **choose differently next time**.
-
-If the same user input produces different behavior over time **because of memory**, this project succeeds.
+Up to Project 3, memory provides continuity and context. From Project 4 onward, memory influences what the agent decides to do.
 
 ---
 
-## Agent Lifecycle
+## Goal
 
-Project 3 lifecycle:
-
-Read → Assemble Context → Respond → Write
-
-Project 4 lifecycle:
-
-Read → Assemble Context → Plan → Act → Evaluate → Write
-
-Two new phases are introduced:
-- **Plan**: select a strategy before acting
-- **Evaluate**: determine success or failure after acting
-
-Memory now closes the learning loop.
+Make memory influence decisions, not just answers.
 
 ---
 
-## System Components
+## What this project proves
 
-### Data Types
-The system reasons over explicit, typed structures:
-- MemoryItem – atomic unit of long-term memory
-- Turn – one interaction step
-- Plan – chosen strategy and rationale
-- Outcome – success or failure signal
-
-Memory is typed, inspectable, and queryable.
+If the same user input produces different behavior over time because of memory, the project succeeds.
 
 ---
 
-### Short-Term Memory (Working Memory)
-- Rolling window of recent turns
-- Automatically forgets older interactions
-- Holds immediate conversational state
+## Core idea
 
-This functions as working memory (RAM).
+The agent should remember what worked, what failed, and choose differently next time.
 
----
-
-### Summary Memory (Compression Layer)
-- Compresses recent turns deterministically
-- Preserves continuity without context bloat
-
-Prevents context window explosion while maintaining narrative flow.
+```text
+Read
+  -> Assemble Context
+  -> Plan
+  -> Act
+  -> Evaluate
+  -> Write Experience Memory
+```
 
 ---
 
-### Long-Term Memory (Context + Experience)
-Stores retrievable memory using similarity search.
+## Lifecycle shift
 
-Memory types include:
-- identity
-- preferences
-- goals
-- facts
-- experience
+| Before Project 4 | After Project 4 |
+|---|---|
+| Read | Read |
+| Assemble context | Assemble context |
+| Respond | Plan |
+| Write | Act |
+|  | Evaluate |
+|  | Write outcome memory |
 
-Long-term memory does not answer queries.  
-It conditions planning and reasoning.
-
----
-
-### Adapter Wrapper
-Wraps the long-term memory backend.
-
-Decouples the MemoryManager from storage implementation, allowing TF-IDF, embeddings, hybrid stores, or knowledge graphs to be swapped without rewriting system logic.
+This is where memory begins to close the learning loop.
 
 ---
 
-### Context Assembly
-Determines what the agent actually sees.
+## Components
 
-Context is assembled in the following order:
-1. Pinned identity, preferences, and goals
-2. Relevant long-term recalls
-3. Summary memory
-4. Recent short-term turns
-5. Current user message
-
-Without explicit context assembly, memory does not reliably influence behavior.
-
----
-
-### Planning
-A lightweight, deterministic planner selects a strategy before the agent responds.
-
-Example strategies:
-- direct_answer
-- ask_clarify
-
-The planner:
-- detects intent
-- checks for missing information
-- consults past experience memories
-- avoids repeating known failures
+| Component | Role |
+|---|---|
+| MemoryItem | Atomic long-term memory record |
+| Turn | One interaction step |
+| Plan | Chosen strategy and rationale |
+| Outcome | Success or failure signal |
+| Experience Memory | Stored record of strategy and outcome |
+| Planner | Selects a strategy before action |
+| Evaluator | Determines whether the action worked |
+| Memory Manager | Enforces the full lifecycle |
 
 ---
 
-### Outcome Evaluation
-After acting, the system evaluates the result.
+## Example trace
 
-Each outcome includes:
-- success or failure
-- reason
-- optional score
-
-Outcomes are explicit learning signals.
-
----
-
-### Experience Memory
-Outcomes are stored as long-term memory of type:
-
-experience
-
-Each experience records:
-- task or intent
-- strategy used
-- success or failure
-- reason
-
-This enables the agent to learn from its own behavior.
-
----
-
-### Memory Manager (Core)
-The MemoryManager enforces the full lifecycle:
-
-Read → Assemble Context → Plan → Act → Evaluate → Write
-
-The agent never manipulates memory directly.  
-This guarantees discipline and consistency.
-
----
-
-### Agent
-The agent:
-- follows the enforced lifecycle
-- executes the selected plan
-- does not control memory behavior
-
-Intelligence comes later.  
-Discipline is established here.
-
----
-
-## Example Behavior
-
+```text
 Turn 1:
-- User asks: “Can you book a flight for me?”
-- Planner selects a strategy
-- Action fails due to missing information
-- Failure is stored as experience memory
+User: Can you book a flight for me?
+
+Memory read:
+No prior experience found.
+
+Plan:
+direct_action
+
+Action:
+Attempt to book flight.
+
+Outcome:
+Failure. Missing destination and travel date.
+
+Memory write:
+For flight booking requests, direct_action fails when required details are missing.
 
 Turn 2:
-- Same user request
-- Planner retrieves past failure
-- Chooses a different strategy
-- Asks for clarification instead
+User: Can you book a flight for me?
 
-Behavior changes **because of memory**.
+Memory read:
+Previous direct_action failed because destination and date were missing.
+
+Plan:
+ask_clarifying_questions
+
+Action:
+Ask for destination and travel date.
+
+Outcome:
+Success. User provides missing details.
+```
 
 ---
 
-## How to Run
+## Why this matters
 
-Open the Project 4 Colab notebook and run all cells.
+Memory is not truly useful if it only improves recall.
 
-The notebook demonstrates:
+The stronger test is whether memory improves action selection.
+
+Project 4 is the turning point where memory becomes cognitive.
+
+---
+
+## Minimum implementation
+
+A minimal version should include:
+
+- typed memory records
+- context assembly
+- a deterministic planner
+- action execution simulation
+- outcome evaluation
+- experience memory writes
+- retrieval of past failures or successes before future planning
+
+---
+
+## How to run
+
+Open the Project 4 notebook or script and run all cells/steps.
+
+The demo should show:
+
 - planning before action
 - outcome evaluation
 - experience storage
@@ -192,22 +139,14 @@ The notebook demonstrates:
 
 ---
 
-## Status
+## Key insight
 
-Complete  
-Tested in Colab  
-Demonstrates memory-influenced decision making
+Memory becomes intelligence when it changes future action.
 
 ---
 
-## What Comes Next
+## Status
 
-With Project 4 complete, the agent now has:
-- continuity (Project 3)
-- experience (Project 4)
+Complete.
 
-Project 5 will introduce:
-- reusable skills
-- task abstraction
-- procedural memory
-- competence over time
+This project prepares the repo for Project 5, where repeated outcomes become reusable skills.
