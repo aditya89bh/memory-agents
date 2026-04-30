@@ -15,37 +15,45 @@ This checklist defines what remains before the repo is considered fully polished
 - [x] Roadmap added
 - [x] Project 6 scoped
 - [x] Project 7 scoped
+- [x] Project 3 folder and README added
+- [x] Project 5 folder and README added
+- [x] README structure standardized across Projects 1–5
+- [x] Example output/proof trace added to each completed project
+- [x] Planned projects clearly marked as planned
 
 ---
 
 ## Remaining polish
 
-These are the only remaining tasks before the repo should be treated as finished.
+These are the only remaining tasks before the repo should be treated as fully finished.
 
 ### Project documentation
 
-- [ ] Confirm Project 3 folder and README are visible
-- [ ] Confirm Project 5 folder and README are visible
-- [ ] Standardize README structure across Projects 1–5
-- [ ] Add example output to each completed project
+- [x] Confirm Project 3 folder and README are visible
+- [x] Confirm Project 5 folder and README are visible
+- [x] Standardize README structure across Projects 1–5
+- [x] Add example output to each completed project
 - [ ] Add clear run instructions or Colab links for each completed project
 
 ### Proof of work
 
-- [ ] Add one sample memory trace for Project 1
-- [ ] Add one sample compression trace for Project 1B
-- [ ] Add one sample retrieval trace for Project 2
-- [ ] Add one sample context assembly trace for Project 3
-- [ ] Add one sample planning/outcome trace for Project 4
-- [ ] Add one sample skill abstraction trace for Project 5
+- [x] Add one sample memory trace for Project 1
+- [x] Add one sample compression trace for Project 1B
+- [x] Add one sample retrieval trace for Project 2
+- [x] Add one sample context assembly trace for Project 3
+- [x] Add one sample planning/outcome trace for Project 4
+- [x] Add one sample skill abstraction trace for Project 5
 
 ### Final repo polish
 
 - [ ] Add a `requirements.txt` if notebooks/scripts need dependencies
 - [ ] Add a short `How to run` section to the root README
-- [ ] Add screenshots or text outputs if useful
 - [ ] Check all folder links from the root README
-- [ ] Make sure planned projects are clearly marked as planned, not complete
+
+Optional, not required for current finish:
+
+- [ ] Add screenshots or rendered text outputs
+- [ ] Add Colab badges if notebooks are public and stable
 
 ---
 
@@ -63,6 +71,6 @@ The repo is done when:
 
 ## Next best task
 
-Start by checking Project 3 and Project 5 visibility, then standardize their READMEs.
+Add run instructions or Colab links for Projects 1–5.
 
-Do not add new deep-dive work until this checklist is closed.
+Do not start deep-dive work until the final repo polish tasks are closed.
